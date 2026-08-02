@@ -1,121 +1,67 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { BackgroundEffects } from './components/BackgroundEffects'
+import { CursorFollower } from './components/CursorFollower'
+import { Navbar } from './components/Navbar'
+import { ProgressBar } from './components/ProgressBar'
+import { useActiveSection } from './hooks/useActiveSection'
+import { useLenisSmoothScroll } from './hooks/useLenisSmoothScroll'
+import { useScrollProgress } from './hooks/useScrollProgress'
+import { useScrollState } from './hooks/useScrollState'
+import { scrollToTopSmooth } from './hooks/useLenisSmoothScroll'
+import {
+  AboutSection,
+  CertificatesSection,
+  ContactSection,
+  FooterSection,
+  HeroSection,
+  ProjectsSection,
+  SkillsSection,
+} from './sections/index.jsx'
+import { downloadResume } from './utils/resume'
+
+const sectionIds = ['home', 'about', 'skills', 'projects','certificates', 'contact']
 
 function App() {
-  const [count, setCount] = useState(0)
+  useLenisSmoothScroll()
+  const activeSection = useActiveSection(sectionIds)
+  const progress = useScrollProgress()
+  const { scrolled } = useScrollState()
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const scrollToTopAndResume = () => {
+    downloadResume()
+  }
+
+  const handleBackToTop = () => {
+    scrollToTopSmooth()
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app-shell">
+      <BackgroundEffects />
+      <ProgressBar progress={progress} />
+      <CursorFollower />
 
-      <div className="ticks"></div>
+      <Navbar
+        activeSection={activeSection}
+        scrolled={scrolled}
+        menuOpen={menuOpen}
+        onToggleMenu={() => setMenuOpen((current) => !current)}
+        onJumpToResume={scrollToTopAndResume}
+        onNavigate={() => setMenuOpen(false)}
+      />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <main>
+        <HeroSection onDownloadResume={scrollToTopAndResume} hideScrollIndicator={progress > 0.12} />
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <CertificatesSection />
+        <ContactSection />
+      </main>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <FooterSection onBackToTop={handleBackToTop} />
+    </div>
   )
 }
 

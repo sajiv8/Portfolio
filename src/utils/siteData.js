@@ -60,17 +60,17 @@ export const siteData = {
     {
       category: 'Database',
       icon: 'database',
-      items: ['PostgreSQL', 'MongoDB', 'Supabase', 'Redis', 'Prisma'],
+      items: ['PostgreSQL', 'Supabase', 'Redis',],
     },
     {
       category: 'Cloud',
       icon: 'cloud',
-      items: ['Vercel', 'Cloudflare', 'AWS', 'Render', 'Docker'],
+      items: ['Vercel', 'Cloudflare', 'AWS', 'Docker'],
     },
     {
       category: 'Tools',
       icon: 'tool',
-      items: ['Git', 'Figma', 'GSAP', 'Lenis', 'Storybook'],
+      items: ['Git', 'Figma',  'Lenis','VsCode'],
     },
   ],
   projects: [

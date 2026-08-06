@@ -36,10 +36,9 @@ export const siteData = {
     { label: 'Approach', value: 'Minimal, premium interfaces' },
   ],
   aboutStats: [
-    { label: 'Projects', value: 12, suffix: '+' },
-    { label: 'Technologies', value: 18, suffix: '+' },
-    { label: 'Years Learning', value: 4, suffix: '+' },
-    { label: 'Open Source Contributions', value: 24, suffix: '+' },
+    { label: 'Projects', value: 5, suffix: '+' },
+    { label: 'Technologies', value: 10, suffix: '+' },
+    { label: 'Years Learning', value: 2, suffix: '+' },
   ],
   skills: [
     {
@@ -75,30 +74,33 @@ export const siteData = {
   ],
   projects: [
     {
-      title: 'Northstar Commerce',
+      title: 'Multi-Tenant Resource Sharing Platform ',
+      status: 'Ongoing',
       description:
-        'A premium commerce dashboard concept with analytics, order operations, and a refined content hierarchy for decision makers.',
-      tech: ['React', 'Tailwind', 'Framer Motion', 'Stripe'],
+        'Developing a microservices-based resource sharing platform for university communities that enables secure authentication, multi-tenant resource management, real-time booking and notifications, and a points-based borrowing system through a responsive web applicationA premium commerce dashboard concept with analytics, order operations, and a refined content hierarchy for decision makers.',
+      tech: ['React.js', 'FastAPI', 'PostgreSQL', 'Redis', 'Docker', 'OAuth 2.0', 'WebSockets','Swagger/OpenAPI'],
       live: '#contact',
-      github: 'https://github.com/',
+      github: 'https://github.comhttps://github.com/sajiv8/P_G20/',
       image: project1,
     },
     {
-      title: 'Linear Focus OS',
-      description:
-        'A productivity workspace prototype shaped around task clarity, zero-friction interactions, and motion that guides attention.',
-      tech: ['Vite', 'TypeScript', 'GSAP', 'Firebase'],
+      title: 'Uni-Find – University Lost & Found Resource Sharing Platform',
+      status: 'Ongoing',
+      description: 
+        'Developing a full-stack web application for university communities that enables users to report lost and ound items, securely authenticate using JWT, search and manage listings, and facilitate communication between owners and finders through a responsive and scalable architecture..',
+      tech: ['React.js', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'JWT Authentication', 'Docker', 'Swagger/OpenAPI'],
       live: '#contact',
-      github: 'https://github.com/',
+      github: 'https://github.com/sajiv8/Uni_Find',
       image: project2,
     },
     {
-      title: 'Cloudcraft Portfolio',
+      title: 'Industrial Predictive Maintenance System',
+      status: 'Completed',
       description:
-        'An editorial developer portfolio system with scalable content sections, open source highlights, and a custom email workflow.',
-      tech: ['React', 'Three.js', 'EmailJS', 'Lenis'],
+        'Developed a scalable IoT-based predictive maintenance system that collects industrial sensor data, performs edge processing, streams real-time data, predicts machine failures, and visualizes insights through a web dashboard.',
+      tech: ['Python', 'SciPy', 'Apache Kafka', 'Next.js', 'Chart.js', 'Docker', 'Kubernetes', 'MLflow', 'Grafana', 'ELK Stack', 'Raspberry Pi/ESP32'],
       live: '#contact',
-      github: 'https://github.com/',
+      github: 'https://github.com/PredictiveOps',
       image: project3,
     },
   ],

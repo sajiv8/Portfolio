@@ -117,7 +117,7 @@ function ProjectCard({ project, index }) {
             <span className="project-kicker">Selected Work</span>
             <span className="project-year">0{index + 1}</span>
           </div>
-          <h3>{project.title}</h3>
+          <h3>{project.title} <span className="status">{project.status}</span></h3>
           <p>{project.description}</p>
           <div className="chip-row">
             {project.tech.map((tech) => (

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   --bg: #fafafb;
   --section-alt: #f5f7fa;
   --heading: #111827;
@@ -34,6 +34,13 @@
 html {
   scroll-behavior: auto;
 }
+
+.status {
+  color: #b90a0a;
+  font-size: 0.8em; 
+  font-weight: 600; 
+}
+
 
 body {
   margin: 0;

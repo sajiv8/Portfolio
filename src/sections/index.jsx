@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { lazy, Suspense, useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import {
   FaDribbble,
   FaGithub,
@@ -28,8 +28,6 @@ import { Reveal } from '../components/Reveal'
 import { ScrollIndicator } from '../components/ScrollIndicator'
 import { SectionHeading } from '../components/SectionHeading'
 import { siteData } from '../utils/siteData'
-
-const ThreeBackdrop = lazy(() => import('../components/ThreeBackdrop').then((module) => ({ default: module.ThreeBackdrop })))
 
 const skillIcons = {
   code: RiCodeSSlashLine,
@@ -224,21 +222,6 @@ export function HeroSection({ onDownloadResume, hideScrollIndicator }) {
 
         <Reveal className="hero-visual-wrap" delay={0.16}>
           <div className="hero-visual">
-            <div className="hero-glow hero-glow-one" />
-            <div className="hero-glow hero-glow-two" />
-            <Suspense fallback={null}>
-              <ThreeBackdrop />
-            </Suspense>
-            <motion.div
-              className="hero-ring"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-            />
-            <motion.div
-              className="hero-square"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 36, repeat: Infinity, ease: 'linear' }}
-            />
             <motion.img
               src={siteData.heroPortrait}
               alt="Editorial portrait illustration"
@@ -249,14 +232,6 @@ export function HeroSection({ onDownloadResume, hideScrollIndicator }) {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ scale: 1.015 }}
             />
-            <motion.div className="hero-floating-card card-one" animate={{ y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}>
-              <span>Motion systems</span>
-              <strong>Framer Motion + Lenis</strong>
-            </motion.div>
-            <motion.div className="hero-floating-card card-two" animate={{ y: [0, 10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}>
-              <span>Product thinking</span>
-              <strong>Clean systems, premium UI</strong>
-            </motion.div>
           </div>
         </Reveal>
       </div>
@@ -354,39 +329,6 @@ export function ProjectsSection() {
   )
 }
 
-
-export function CertificatesSection() {
-  return (
-    <section id="certificates" className="page-section">
-      <div className="container">
-        <SectionHeading
-          eyebrow="Certificates"
-          title="Credentials and learning artifacts, displayed with the same care as client work."
-          description="A compact masonry layout keeps the section responsive and editorial."
-        />
-
-        <div className="certificate-grid">
-          {siteData.certificates.map((certificate, index) => (
-            <Reveal className="certificate-card" key={certificate.title} delay={index * 0.05}>
-              <motion.img
-                src={certificate.image}
-                alt={certificate.title}
-                className="certificate-image"
-                loading="lazy"
-                whileHover={{ scale: 1.02 }}
-              />
-              <div className="certificate-copy">
-                <span>{certificate.issuer}</span>
-                <h3>{certificate.title}</h3>
-                <p>{certificate.year}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 export function ContactSection() {
   const formRef = useRef(null)

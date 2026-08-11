@@ -1,4 +1,4 @@
-import aboutPortrait from '../assets/about-portrait.svg'
+import aboutPortrait from '../assets/about-portrait.jpeg'
 import certificate1 from '../assets/certificate-1.svg'
 import certificate2 from '../assets/certificate-2.svg'
 import certificate3 from '../assets/certificate-3.svg'
@@ -109,32 +109,6 @@ export const siteData = {
     'Accessibility and motion refinements',
     'UI polish for open source dashboards',
     'Documentation and onboarding Improvements',
-  ],
-  certificates: [
-    {
-      title: 'Responsive Web Design',
-      issuer: 'freeCodeCamp',
-      year: '2024',
-      image: certificate1,
-    },
-    {
-      title: 'Frontend Performance',
-      issuer: 'Web.dev',
-      year: '2025',
-      image: certificate2,
-    },
-    {
-      title: 'React Advanced Patterns',
-      issuer: 'Frontend Masters',
-      year: '2025',
-      image: certificate3,
-    },
-    {
-      title: 'Cloud Foundations',
-      issuer: 'AWS Academy',
-      year: '2025',
-      image: certificate4,
-    },
   ],
   heroPortrait,
   aboutPortrait,

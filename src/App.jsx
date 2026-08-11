@@ -11,7 +11,6 @@ import { scrollToTopSmooth } from './hooks/useLenisSmoothScroll'
 
 import {
   AboutSection,
-  CertificatesSection,
   ContactSection,
   FooterSection,
   HeroSection,
@@ -84,8 +83,6 @@ function App() {
         <SkillsSection />
 
         <ProjectsSection />
-
-        <CertificatesSection />
 
         <ContactSection />
       </main>

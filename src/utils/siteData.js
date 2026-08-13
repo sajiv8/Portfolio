@@ -15,7 +15,7 @@ export const siteData = {
   email: 'sajiv.23@cse.mrt.ac.lk',
   phone: '+94 77 072 9545',
   summary:
-    'I build polished web products with strong systems thinking, clean interaction design, and a focus on performance, clarity, and long-term maintainability.',
+    'Computer Science and Engineering undergraduate at the University of Moratuwa, interested in Software Engineering and full-stack development.   ',
   about:
     'I am a Computer Science Engineering student @University of Moratuwa who enjoys turning complex product ideas into simple, premium interfaces. My work blends design sensitivity, engineering discipline, and a strong bias toward smooth user experience.',
   resumeLabel: 'Download Resume',
@@ -32,7 +32,6 @@ export const siteData = {
   ],
   heroStats: [
     { label: 'Focus', value: 'Frontend systems' },
-    { label: 'Delivery', value: 'Fast, thoughtful shipping' },
     { label: 'Approach', value: 'Minimal, premium interfaces' },
   ],
   aboutStats: [
@@ -110,6 +109,5 @@ export const siteData = {
     'UI polish for open source dashboards',
     'Documentation and onboarding Improvements',
   ],
-  heroPortrait,
   aboutPortrait,
 }

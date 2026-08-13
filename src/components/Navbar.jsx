@@ -1,9 +1,20 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi'
 import { RiArrowRightUpLine } from 'react-icons/ri'
 import { siteData } from '../utils/siteData'
 
-export function Navbar({ activeSection, scrolled, menuOpen, onToggleMenu, onJumpToResume, onNavigate }) {
+export function Navbar({
+  activeSection,
+  scrolled,
+  menuOpen,
+  theme,
+  onToggleMenu,
+  onToggleTheme,
+  onJumpToResume,
+  onNavigate,
+}) {
+  const isDark = theme === 'dark'
+
   return (
     <motion.header
       className={`site-nav ${scrolled ? 'site-nav-scrolled' : ''}`}
@@ -31,6 +42,18 @@ export function Navbar({ activeSection, scrolled, menuOpen, onToggleMenu, onJump
         </nav>
 
         <div className="nav-actions">
+          <button
+            type="button"
+            className={`theme-toggle ${isDark ? 'is-dark' : ''}`}
+            onClick={onToggleTheme}
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
+            aria-pressed={isDark}
+          >
+            <span className="theme-toggle-track" aria-hidden="true">
+              <span className="theme-toggle-thumb">{isDark ? <FiMoon /> : <FiSun />}</span>
+            </span>
+          </button>
+
           <button type="button" className="resume-button" onClick={onJumpToResume}>
             Resume <RiArrowRightUpLine />
           </button>
@@ -55,6 +78,20 @@ export function Navbar({ activeSection, scrolled, menuOpen, onToggleMenu, onJump
                 <RiArrowRightUpLine />
               </a>
             ))}
+
+            <button
+              type="button"
+              className={`theme-toggle theme-toggle-mobile ${isDark ? 'is-dark' : ''}`}
+              onClick={onToggleTheme}
+              aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
+              aria-pressed={isDark}
+            >
+              <span className="theme-toggle-track" aria-hidden="true">
+                <span className="theme-toggle-thumb">{isDark ? <FiMoon /> : <FiSun />}</span>
+              </span>
+              <span>{isDark ? 'Dark theme' : 'Light theme'}</span>
+            </button>
+
             <button type="button" className="resume-button mobile-resume" onClick={onJumpToResume}>
               Resume <RiArrowRightUpLine />
             </button>

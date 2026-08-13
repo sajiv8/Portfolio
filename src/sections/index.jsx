@@ -219,21 +219,6 @@ export function HeroSection({ onDownloadResume, hideScrollIndicator }) {
             ))}
           </div>
         </Reveal>
-
-        <Reveal className="hero-visual-wrap" delay={0.16}>
-          <div className="hero-visual">
-            <motion.img
-              src={siteData.heroPortrait}
-              alt="Editorial portrait illustration"
-              className="hero-portrait"
-              loading="eager"
-              initial={{ opacity: 0, y: 18, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ scale: 1.015 }}
-            />
-          </div>
-        </Reveal>
       </div>
 
       <ScrollIndicator hidden={hideScrollIndicator} />
@@ -389,29 +374,6 @@ export function ContactSection() {
             </Reveal>
           </div>
         </div>
-
-        <Reveal className="contact-panel">
-          <motion.form ref={formRef} onSubmit={onSubmit} className="contact-form" variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-            <div className="contact-form-header">
-              <h3>Send a message</h3>
-              <p>For opportunities, collaborations, or portfolio feedback.</p>
-            </div>
-
-            <FloatingField label="Name" name="name" value={formState.name} onChange={onChange} />
-            <FloatingField label="Email" name="email" type="email" value={formState.email} onChange={onChange} />
-            <FloatingField label="Message" name="message" multiline value={formState.message} onChange={onChange} />
-
-            <div className="contact-form-footer">
-              <button type="submit" className="primary-button submit-button" disabled={status === 'sending'}>
-                <span>{status === 'sending' ? 'Sending' : 'Send Message'}</span>
-                <FiSend />
-              </button>
-              <p className="form-status" aria-live="polite">
-                {status === 'sent' ? 'Message sent.' : status === 'error' ? 'Unable to send, try again.' : 'Response within 24 hours.'}
-              </p>
-            </div>
-          </motion.form>
-        </Reveal>
       </div>
     </section>
   )

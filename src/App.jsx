@@ -28,6 +28,25 @@ const sectionIds = [
 ]
 
 function App() {
+  const [theme, setTheme] = useState('light')
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem('theme')
+
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      setTheme(savedTheme)
+      return
+    }
+
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    setTheme(prefersDark ? 'dark' : 'light')
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    document.documentElement.style.colorScheme = theme
+    window.localStorage.setItem('theme', theme)
+  }, [theme])
 
   // Always start from the top when the page loads/reloads
   useEffect(() => {
@@ -54,6 +73,10 @@ function App() {
     scrollToTopSmooth()
   }
 
+  const handleToggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'))
+  }
+
   return (
     <div className="app-shell">
 
@@ -67,7 +90,9 @@ function App() {
         activeSection={activeSection}
         scrolled={scrolled}
         menuOpen={menuOpen}
+        theme={theme}
         onToggleMenu={() => setMenuOpen((current) => !current)}
+        onToggleTheme={handleToggleTheme}
         onJumpToResume={handleDownloadResume}
         onNavigate={() => setMenuOpen(false)}
       />

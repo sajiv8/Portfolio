@@ -383,7 +383,7 @@ export function FooterSection({ onBackToTop }) {
   return (
     <footer className="footer-section">
       <div className="container footer-inner">
-        <p>© 2026 {siteData.name}. Built with intention.</p>
+        <p>© 2026 {siteData.name}.</p>
         <div className="footer-links">
           <a href="#home">Top</a>
           <button type="button" onClick={onBackToTop} className="back-to-top">

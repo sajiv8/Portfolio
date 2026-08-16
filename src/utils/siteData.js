@@ -68,7 +68,7 @@ export const siteData = {
     {
       category: 'Tools',
       icon: 'tool',
-      items: ['Git', 'Figma',  'Lenis','VsCode'],
+      items: ['Git', 'Figma','VsCode'],
     },
   ],
   projects: [
